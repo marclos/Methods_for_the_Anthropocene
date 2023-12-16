@@ -1,4 +1,33 @@
-# Methods
+# Methods for Decolonizing
+
+## Decolonizing EA30
+
+By Haley Land-Miller
+
+Objectives: 
+
+a) a collective understanding of the history and politicized nature of science, as it relates to colonization and white supremacy
+
+b) begin a group conversation of how to use science in ways that acknowledge and deconstruct this history
+
+	How is science colonized? In essence, this colonization is essentially rooted in a) ways that science has been shaped by history and b) the ways that history has been shaped by science. On the first of these two concepts, Prescod-Weinstein describes the ways in which science is not at all objective, but rather in many ways shaped by societal conceptions and values. One good example of this influence is the way that conceptions of the gender binary and heterosexuality that stemmed from Judeo-Christian beliefs led to people of other genders or sexualities being considered medically ill – on the basis of science. Additionally, the erasure and devaluing of non-European contributions to science constructs an inaccurate historical narrative about science that defines people of color as natural outsiders to the discipline. The second aspect of this colonization, the ways in which history has been shaped by science, maybe more glaringly illustrates the intertwining of science with historical racism, sexism, and other types of violence. There are innumerable examples of the ways in which science has been used as a tool of oppression and White supremacy, including but not at all limited to: the use of science as justification and a practical tool in the Transatlantic Slave Trade and medical abuses against low-income people of color in the US. For details on many of these examples, see Prescod-Weinstein’s two works. The work of “decolonizing” science certainly begins with the acknowledgment and discussion of the ways in which science and violent histories have been intertwined. I think that a reading of either or both of Prescod-Weinstein’s articles would be a useful jumping-off point, and the following questions could be used for discussion:
+Why should we discuss the history of science? 
+What are some examples of non-European contributions to science, either ones mentioned in the reading or that you know of from other sources?
+What lasting effects to the historical roots and uses of science have?
+How can we work to construct and use a more just version of science?
+What role does environmental science play in reinforcing and/or undermining capitalism/colonialism? 
+
+I think it’s important to keep in mind one of the themes of Raisah’s thesis, which was that decolonizing the curriculum is only one of many aspects to creating an inclusive, accessible class. Particularly, she noted that interpersonal dynamics (between professors and students and between students) are an essential part of this work. These dynamics would be even more important to be mindful of when having the above conversations. 
+
+I think aspects of these two essays could be good readings:
+
+The intro to the reading list is a really good read (pretty short). Could ask students to also pick something else off the reading list to read and share about!
+
+ 
+Prescod-Weinstein, C. (2015, April 25). Decolonising Science Reading List. Retrieved June 13, 2017, from https://medium.com/@chanda/decolonising-science-reading-list-339fb773d51f.
+
+Prescod-Weinstein, C. (2016, January 24). Intersectionality as a Blueprint for Postcolonial Scientific Community Building. Retrieved June 13, 2017, from https://medium.com/@chanda/intersectionality-as-a-blueprint-for-postcolonial-scientific-community-building-7e795d09225a#.lmvrsh7su. A long but great read. Particularly the 3rd section could be good to use as a reading.
+
 
 We describe our methods in this chapter.
 

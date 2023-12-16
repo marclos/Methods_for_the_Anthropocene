@@ -1,6 +1,6 @@
 --- 
-title: "A Minimal Book Example"
-author: "Yihui Xie"
+title: "Methods for the Anthropocene"
+author: "Marc Los Huertos"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
@@ -9,12 +9,14 @@ bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
 github-repo: rstudio/bookdown-demo
-description: "This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook."
+description: "This is a draft EA30 textbook using bookdown::gitbook."
 ---
 
-# Prerequisites
+# Progress
 
-This is a _sample_ book written in **Markdown**. You can use anything that Pandoc's Markdown supports, e.g., a math equation $a^2 + b^2 = c^2$.
+## Prerequsites
+
+This book is written in **Markdown**, using Pandoc's Markdown supports, e.g., a math equation $a^2 + b^2 = c^2$.
 
 The **bookdown** package can be installed from CRAN or Github:
 
@@ -34,3 +36,16 @@ knitr::write_bib(c(
   .packages(), 'bookdown', 'knitr', 'rmarkdown'
 ), 'packages.bib')
 ```
+
+## Next Steps
+
+1. Short Outlines for EA30 2023
+
+- co2 and manua loa
+- water and river names
+- modeling bathymetry and storage
+
+2. Convert to Tufte Book Style
+
+3. Add R-tricks as part of the applications
+

@@ -1,0 +1,12 @@
+\documentclass{article}
+
+\begin{document}
+
+1. Short Outlines for EA30 2023
+
+- co2 and manua loa
+- water and river names
+- modeling bathymetry and storage
+
+
+\end{document}

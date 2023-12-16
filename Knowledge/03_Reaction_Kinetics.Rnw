@@ -1,0 +1,133 @@
+\documentclass{tufte-handout}
+
+\title{Reaction Kinetics for Air Pollution}
+% \date{}
+
+\begin{document}
+
+\maketitle
+
+
+Here's an example R code for simulating reaction kinetics in the context of air pollution using a simple chemical reaction model. In this example, I'll use the well-known reaction of pollutants A and B reacting to form a product C. This is a simplified model, and the actual chemical reactions in the atmosphere can be more complex.
+
+<<>>=
+# Reaction Kinetics for Air Pollution
+
+# Parameters
+rate_constant <- 0.01   # Reaction rate constant
+initial_concentration_A <- 1.0  # Initial concentration of pollutant A
+initial_concentration_B <- 0.5  # Initial concentration of pollutant B
+initial_concentration_C <- 0.0  # Initial concentration of product C
+
+# Simulation parameters
+dt <- 0.1    # Time step
+num_steps <- 100   # Number of time steps
+
+# Initialize concentrations
+concentration_A <- rep(0, num_steps)
+concentration_B <- rep(0, num_steps)
+concentration_C <- rep(0, num_steps)
+
+concentration_A[1] <- initial_concentration_A
+concentration_B[1] <- initial_concentration_B
+concentration_C[1] <- initial_concentration_C
+
+# Reaction kinetics simulation loop
+for (step in 2:num_steps) {
+  # Reaction kinetics
+  dA_dt <- -rate_constant * concentration_A[step - 1] * concentration_B[step - 1] * dt
+  dB_dt <- -rate_constant * concentration_A[step - 1] * concentration_B[step - 1] * dt
+  dC_dt <- rate_constant * concentration_A[step - 1] * concentration_B[step - 1] * dt
+
+  # Update concentrations
+  concentration_A[step] <- concentration_A[step - 1] + dA_dt
+  concentration_B[step] <- concentration_B[step - 1] + dB_dt
+  concentration_C[step] <- concentration_C[step - 1] + dC_dt
+}
+
+# Plotting the results
+time <- seq(0, (num_steps - 1) * dt, by = dt)
+
+plot(time, concentration_A, type = 'l', col = 'red', lwd = 2, ylim = c(0, max(initial_concentration_A, initial_concentration_B, initial_concentration_C)))
+lines(time, concentration_B, type = 'l', col = 'blue', lwd = 2)
+lines(time, concentration_C, type = 'l', col = 'green', lwd = 2)
+
+legend('topright', legend = c('A', 'B', 'C'), col = c('red', 'blue', 'green'), lwd = 2, bty = 'n')
+title(main = 'Reaction Kinetics for Air Pollution')
+xlabel <- expression('Time (' ~ s ~ ')')
+ylabel <- expression('Concentration')
+title(xlab = xlabel, ylab = ylabel)
+@
+
+
+\section{with temperature}
+<<>>=
+# Reaction Kinetics for Air Pollution with Temperature
+
+# Parameters
+initial_concentration_A <- 1.0  # Initial concentration of pollutant A
+initial_concentration_B <- 0.5  # Initial concentration of pollutant B
+initial_concentration_C <- 0.0  # Initial concentration of product C
+
+# Simulation parameters
+dt <- 0.1    # Time step
+num_steps <- 100   # Number of time steps
+
+# Temperature parameters
+initial_temperature <- 300  # Initial temperature in Kelvin
+temperature_increase_rate <- 1  # Rate of temperature increase over time
+activation_energy <- 20  # Activation energy for the reaction
+
+# Function to calculate the rate constant based on temperature
+calculate_rate_constant <- function(temperature) {
+  return(exp(-activation_energy / (8.314 * temperature)))
+}
+
+# Initialize concentrations and temperature
+concentration_A <- rep(0, num_steps)
+concentration_B <- rep(0, num_steps)
+concentration_C <- rep(0, num_steps)
+temperature <- rep(0, num_steps)
+
+concentration_A[1] <- initial_concentration_A
+concentration_B[1] <- initial_concentration_B
+concentration_C[1] <- initial_concentration_C
+temperature[1] <- initial_temperature
+
+# Reaction kinetics simulation loop
+for (step in 2:num_steps) {
+  # Temperature increase over time
+  temperature[step] <- initial_temperature + temperature_increase_rate * (step - 1) * dt
+
+  # Reaction kinetics with temperature dependence
+  rate_constant <- calculate_rate_constant(temperature[step])
+
+  dA_dt <- -rate_constant * concentration_A[step - 1] * concentration_B[step - 1] * dt
+  dB_dt <- -rate_constant * concentration_A[step - 1] * concentration_B[step - 1] * dt
+  dC_dt <- rate_constant * concentration_A[step - 1] * concentration_B[step - 1] * dt
+
+  # Update concentrations
+  concentration_A[step] <- concentration_A[step - 1] + dA_dt
+  concentration_B[step] <- concentration_B[step - 1] + dB_dt
+  concentration_C[step] <- concentration_C[step - 1] + dC_dt
+}
+
+# Plotting the results
+time <- seq(0, (num_steps - 1) * dt, by = dt)
+
+par(mfrow = c(2, 1), mar = c(4, 4, 2, 2), oma = c(0, 0, 2, 0))
+plot(time, concentration_A, type = 'l', col = 'red', lwd = 2, ylim = c(0, max(initial_concentration_A, initial_concentration_B, initial_concentration_C)))
+lines(time, concentration_B, type = 'l', col = 'blue', lwd = 2)
+lines(time, concentration_C, type = 'l', col = 'green', lwd = 2)
+legend('topright', legend = c('A', 'B', 'C'), col = c('red', 'blue', 'green'), lwd = 2, bty = 'n')
+title(main = 'Reaction Kinetics for Air Pollution')
+
+plot(time, temperature, type = 'l', col = 'orange', lwd = 2, ylim = c(initial_temperature, max(temperature)))
+title(main = 'Temperature Profile')
+xlabel <- expression('Time (' ~ s ~ ')')
+ylabel <- expression('Temperature (K)')
+title(xlab = xlabel, ylab = ylabel)
+
+@
+
+\end{document}

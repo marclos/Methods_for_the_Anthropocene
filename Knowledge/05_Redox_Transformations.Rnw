@@ -1,0 +1,67 @@
+\documentclass{tufte-handout}
+
+\title{}
+% \date{}
+
+\begin{document}
+
+\maketitle
+
+<<>>=
+# Thermodynamics of Redox Changes in Sediments
+
+# Parameters
+initial_concentration_O2 <- 1.0  # Initial concentration of oxygen (oxidizing agent)
+initial_concentration_e <- 0.0  # Initial concentration of electrons
+initial_concentration_Fe3 <- 0.5  # Initial concentration of ferric iron
+initial_concentration_Fe2 <- 0.0  # Initial concentration of ferrous iron
+
+# Simulation parameters
+dt <- 0.1    # Time step
+num_steps <- 100   # Number of time steps
+
+# Initialize concentrations
+concentration_O2 <- rep(0, num_steps)
+concentration_e <- rep(0, num_steps)
+concentration_Fe3 <- rep(0, num_steps)
+concentration_Fe2 <- rep(0, num_steps)
+
+concentration_O2[1] <- initial_concentration_O2
+concentration_e[1] <- initial_concentration_e
+concentration_Fe3[1] <- initial_concentration_Fe3
+concentration_Fe2[1] <- initial_concentration_Fe2
+
+# Gibbs free energy change for redox reactions
+delta_G_O2_to_Fe3 <- -100  # Example value (in kJ/mol)
+delta_G_Fe3_to_Fe2 <- -50  # Example value (in kJ/mol)
+
+# Redox simulation loop
+for (step in 2:num_steps) {
+  # Redox reactions
+  dG_O2_to_Fe3 <- delta_G_O2_to_Fe3 - 8.314 * 298 * log(concentration_O2[step - 1] / initial_concentration_O2)
+  dG_Fe3_to_Fe2 <- delta_G_Fe3_to_Fe2 - 8.314 * 298 * log(concentration_Fe3[step - 1] / initial_concentration_Fe3)
+
+  # Calculate reaction rates based on Gibbs free energy change
+  rate_O2_to_Fe3 <- exp(-dG_O2_to_Fe3 / (8.314 * 298))
+  rate_Fe3_to_Fe2 <- exp(-dG_Fe3_to_Fe2 / (8.314 * 298))
+
+  # Update concentrations
+  concentration_O2[step] <- concentration_O2[step - 1] - rate_O2_to_Fe3 * dt
+  concentration_e[step] <- concentration_e[step - 1] + rate_O2_to_Fe3 * dt
+  concentration_Fe3[step] <- concentration_Fe3[step - 1] - rate_Fe3_to_Fe2 * dt
+  concentration_Fe2[step] <- concentration_Fe2[step - 1] + rate_Fe3_to_Fe2 * dt
+}
+
+# Plotting the results
+time <- seq(0, (num_steps - 1) * dt, by = dt)
+
+par(mfrow = c(2, 2), mar = c(4, 4, 2, 2), oma = c(0, 0, 2, 0))
+plot(time, concentration_O2, type = 'l', col = 'red', lwd = 2, ylim = c(0, initial_concentration_O2), main = 'Oxygen Concentration')
+plot(time, concentration_e, type = 'l', col = 'blue', lwd = 2, ylim = c(0, initial_concentration_e), main = 'Electron Concentration')
+plot(time, concentration_Fe3, type = 'l', col = 'green', lwd = 2, ylim = c(0, initial_concentration_Fe3), main = 'Ferric Iron Concentration')
+plot(time, concentration_Fe2, type = 'l', col = 'orange', lwd = 2, ylim = c(0, initial_concentration_Fe2), main = 'Ferrous Iron Concentration')
+
+@
+
+
+\end{document}

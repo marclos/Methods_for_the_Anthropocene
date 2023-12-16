@@ -1,0 +1,54 @@
+\documentclass{tufte-handout}
+
+\title{}
+% \date{}
+
+\begin{document}
+
+\maketitle
+
+<<>>=
+# Model Oxygen Concentrations in Water
+
+# Parameters
+temperature <- seq(0, 30, by = 1)  # Temperature in degrees Celsius
+bod <- seq(1, 10, by = 1)  # Biological Oxygen Demand (BOD) in mg/L
+salinity <- seq(0, 30, by = 1)  # Salinity in ppt (parts per thousand)
+
+# Model coefficients (example values, replace with actual coefficients)
+coeff_temp <- 0.5
+coeff_bod <- -0.2
+coeff_salinity <- -0.1
+intercept <- 10
+
+# Function to model oxygen concentration
+model_oxygen_concentration <- function(temp, bod, salinity) {
+  return(intercept + coeff_temp * temp + coeff_bod * bod + coeff_salinity * salinity)
+}
+
+# Generate a grid of combinations of temperature, BOD, and salinity
+grid <- expand.grid(temperature = temperature, bod = bod, salinity = salinity)
+
+# Model oxygen concentration for each combination
+grid$oxygen_concentration <- model_oxygen_concentration(grid$temperature, grid$bod, grid$salinity)
+
+# Plotting the results
+library("scatterplot3d")
+
+scatterplot3d(grid$temperature, grid$bod, grid$salinity, color = "blue",
+              main = "Oxygen Concentration Model",
+              xlab = "Temperature (Celsius)",
+              ylab = "BOD (mg/L)",
+              zlab = "Salinity (ppt)",
+              pch = 16,
+              type = "h")
+
+# Add model surface
+fit <- lm(oxygen_concentration ~ temperature + bod + salinity, data = grid)
+fit_surface <- predict(fit, newdata = grid)
+scatterplot3d(grid$temperature, grid$bod, grid$salinity, color = "blue", add = TRUE,
+              grid = FALSE, fit = fit_surface)
+@
+
+
+\end{document}

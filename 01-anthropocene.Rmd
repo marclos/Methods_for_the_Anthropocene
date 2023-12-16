@@ -1,0 +1,81 @@
+# Decolonizing the Anthropocene {#anthropocene}
+
+## Statrigraphy and Earth's Records
+
+![Chronostratic Chart (2022 v10)](media/ChronostratChart2022-10)
+
+## A Popularlized Version of the Anthropocene
+
+The Anthropocene refers to the most recent geologic period in the Quaternary.^[The Quaternary is the current and most recent of the three periods of the Cenozoic Era in the geologic time scale of the International Commission on Stratigraphy. It follows the Neogene Period and spans from 2.58 million years ago to the present]
+While the term had been coined and used in various ways before the 21st Century, Paul J. Crutzen, an atmospheric chemist popularized the term in 2000. He argued that the influence of human behavior on Earth's atmosphere in recent centuries as so significant as to constitute a new geological epoch.
+
+The term captured the imagination for a wide range of natural and social scientists and humanists, creating an uncomfortable ambiguity for geologists, namely they had systematic and verifiable rules about how to name geological epochs.
+
+## The Anthropocene Working Group (AWG)
+
+In 2009, the AWG was formed to develop a proposed site that could mark the start of the Anthropocene, where humans have created a break from the past Holocene. A central object of research for the AWG is establishing when, where, and how to locate the lower boundary of the Anthropocene. 
+
+This means assigning a starting date to the Anthropocene (and an end to the Holocene), locating primary as well as auxiliary markers defining Anthropocene geologic record, and determining the proper methodology to implement in the overall process of formalization (GSSP or GSSA, what proxies to use as markers, etc.). Although debates on the taxonomical level of the Anthropocene in the chronostratigraphic chart / geologic time scale (Stage/Age, Series/Epoch, or System/Period) have occurred, the AWG has been considering the Anthropocene to best fit the requirements to be taxonomically recognized as an Epoch.
+
+The marker must follow the following rules: 
+
+- GSSP has to define the lower boundary of a geologic stage.
+
+- The lower boundary has to be defined using a primary marker (usually first appearance datum of a fossil species).
+
+- There should also be secondary markers (other fossils, chemical, geomagnetic reversal).
+
+- The horizon in which the marker appears should have minerals that can be radiometrically dated.
+
+- The marker has to have regional and global correlation in outcrops of the same age
+The marker should be independent of facies. {A facies encompasses all of the characteristics of a rock including its chemical, physical, and biological features that distinguish it from adjacent rock.}
+
+- The outcrop has to have an adequate thickness.
+
+- Sedimentation has to be continuous without any changes in facies
+
+- The outcrop should be unaffected by tectonic and sedimentary movements, and metamorphism
+
+- The outcrop has to be accessible to research and free to access. This includes that the outcrop has to be located where it can be visited quickly (International airport and good roads), has to be kept in good condition (Ideally a national reserve), in accessible terrain, extensive enough to allow repeated sampling and open to researchers of all nationalities.
+
+
+Let's think about what these markers must do in simpler terms: they must be synchronized and able to form geolocic layers that can be identified decades, centuries, millennia, and even millions of years from now. Thus, AWG must be confident that these sites will retain their integrity, as a depositional environment and the markers are robust to the processes of history. 
+
+In one sense the “golden spike” is marking modernity, pollution, atomic radiation, species extinctions, etc, these are stories of obscure victims, victims that remain casualties of modernity, as side effects and disposed and undervalues, but accidental. 
+
+## 12 now 9  Candidate Sites
+
+Defining the Anthropocene: nine sites are in the running to be given the ‘golden spike’ designation.
+
+```{r, echo=FALSE}
+
+sites = c("Beppu Bay", "Crawford Lake", "Flinders Reef", "Gotland Basin", "Palmer ice core", "Searsville Lake", "Sihailongwan Lake", "Śnieżka peat bog", "West Flower Garden Bank")
+
+locations = c("Kyushu Island, Japan", "Ontario, Canada", "Coral Sea, Australia", "Baltic Sea", "Antarctic Peninsula", "California, USA", "Jilin province, China", "Sudetes Mountains, Poland", "Gulf of Mexico")
+              
+material = c("Marine sediment", "Lake mud", "Coral", "Marine sediment", "Ice", "Lake mud", "Lake mud", "Peat layer", "Coral") 
+             
+functionality = c("Sediment fell to the sea floor, where the oxygen-deprived water limits disturbance by animals.", "Particles accumulated at the steep-sloped lake bottom, where water layers don’t mix.", "The corals’ growing exoskeletons have trapped chemicals and particles.", "Sediment fell to the sea floor, where the oxygen-deprived water limits disturbance by animals.", 
+"Annual layers of snowfall captured particles and chemicals from the air.", "Silt layers accumulated at the bottom after storm events.", "Particles fell to the bottom of this lake, which has an oxygen-deprived lower layer that limits disturbance.", "Peat in this high-altitude bog has captured chemicals and particles from the air.", "The corals’ growing exoskeletons have trapped chemicals and particles.")
+
+
+sites = data.frame(Site=sites, Location=locations, Material=material, Function=functionality)
+
+#Site, Location, Material type, How it captures signs of human activity
+```
+
+```{r}
+knitr::kable(sites, "html")
+```
+
+
+Source: Anthropocene Working Group
+
+## Missing Continents and Missing Narratives
+
+### Rose and the South Africa's Anthropocene Markers
+
+
+### Yousef: White Geology and Hiden Victims
+
+

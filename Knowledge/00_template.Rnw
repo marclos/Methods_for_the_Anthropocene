@@ -1,0 +1,13 @@
+\documentclass{tufte-handout}
+
+\title{}
+% \date{}
+
+\begin{document}
+
+\maketitle
+
+test
+
+
+\end{document}
